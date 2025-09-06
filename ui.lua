@@ -2384,14 +2384,19 @@ function Luna:CreateWindow(WindowSettings)
 
 			local AttemptsRemaining = math.random(2, 5)
 
-			KeySystem.Visible = true
-			KeySystem.Title.Text = WindowSettings.KeySettings.Title
-			KeySystem.Subtitle.Text = WindowSettings.KeySettings.Subtitle
-			KeySystem.textshit.Text = WindowSettings.KeySettings.Note
+		KeySystem.Visible = true
+		KeySystem.Title.Text = WindowSettings.KeySettings.Title
+		KeySystem.Subtitle.Text = WindowSettings.KeySettings.Subtitle
+		KeySystem.textshit.Text = WindowSettings.KeySettings.Note
 
-			if KeySettings.SecondAction.Enabled == true then
-				Btn.Visible = true
-			end
+		-- Set button text
+		if Btn.Title then
+			Btn.Title.Text = "Get Key"
+		end
+
+		if KeySettings.SecondAction.Enabled == true then
+			Btn.Visible = true
+		end
 			
 			Btn.Interact.MouseButton1Click:Connect(function()
 				if typesys == "Discord" then
